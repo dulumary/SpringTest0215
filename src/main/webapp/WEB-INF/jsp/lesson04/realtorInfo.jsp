@@ -30,10 +30,7 @@
 				<th>주소</th>
 				<td>${realtor.address }</td>
 			</tr>
-		
 		</table>
-	
-	
 	</div>
 
 </body>
