@@ -25,6 +25,7 @@
 					<th>No.</th>
 					<th>이름</th>
 					<th>주소</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -33,6 +34,8 @@
 					<td>${status.count }</td>
 					<td>${favorite.name }</td>
 					<td>${favorite.url }</td>
+					<!--  <a href="/lesson06/delete_favorite?id=${favorite.id}"> 삭제 </a> -->
+					<td><button type="button" data-favorite-id="${favorite.id}" class="btn btn-danger btn-sm deleteBtn">삭제</button> </td>
 				</tr>
 				
 				</c:forEach>
@@ -41,6 +44,44 @@
 		</table>
 	
 	</div>
+	
+	<script>
+		$(document).ready(function() {
+			
+			$(".deleteBtn").on("click", function() {
+				
+				let favoriteId = $(this).data("favorite-id");
+				
+				
+				$.ajax({
+					type:"get",
+					url:"/lesson06/delete_favorite",
+					data:{"id":favoriteId},
+					success:function(data) {
+						// {"result":"success"}
+						// {"result":"fail"}
+						
+						if(data.result == "success") {
+							// 새로고침
+							location.reload();
+						} else {
+							alert("삭제 실패");
+						}
+						
+					},
+					error:function() {
+						alert("삭제 에러");
+					}
+				});
+				
+				
+				
+			});
+			
+			
+		});
+	
+	</script>
 
 	
 
