@@ -47,5 +47,27 @@
 		
 		
 	</insert>
+	
+	<select id="selectBooking" parameterType="map" 
+	resultType="com.marondal.test.lesson06.model.Booking">
+		SELECT 
+			`id`
+			, `name`
+			, `headcount`
+			, `day`
+			, `date`
+			, `phoneNumber`
+			, `state`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`booking`
+		WHERE
+			`name` = #{name}
+			AND `phoneNumber` = #{phoneNumber}
+			
+	
+	</select>
+	
 
 </mapper>

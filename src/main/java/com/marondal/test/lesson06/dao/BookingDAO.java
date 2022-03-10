@@ -19,4 +19,8 @@ public interface BookingDAO {
 			@Param("headcount") int headcount,
 			@Param("phoneNumber") String phoneNumber,
 			@Param("state") String state);
+	
+	public Booking selectBooking(
+			@Param("name") String name,
+			@Param("phoneNumber") String phoneNumber);
 }
