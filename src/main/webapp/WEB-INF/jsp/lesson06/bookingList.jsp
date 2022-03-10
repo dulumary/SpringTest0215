@@ -59,7 +59,7 @@
                         			<td class="text-success">${booking.state }</td>
                         		</c:when>
                         		<c:when test="${booking.state == '대기중' }">
-									<td class="text-info">${booking.state }</td>                        			
+									<td><a href="#" class="text-info penddingBtn" data-booking-id="${booking.id }">대기중</a> </td>                        			
                         		</c:when>
                         		<c:when test="${booking.state == '취소' }">
                         			<td class="text-danger" >${booking.state }</td>
@@ -97,6 +97,30 @@
     <script>
         $(document).ready(function() {
         	
+        	
+        	$(".penddingBtn").on("click", function() {
+        		
+        		let bookingId = $(this).data("booking-id");
+        	
+        		
+        		$.ajax({
+        			type:"get", 
+        			url:"/lesson06/change_state",
+        			data:{"id":bookingId},
+        			success:function(data) {
+        				if(data.result == "success") {
+        					location.reload();
+        				} else {
+        					alert("상태 변경 실패");
+        				}
+        				
+        			}, 
+        			error:function() {
+        				alert("상태 변경 에러");
+        			}
+        			
+        		});
+        	});
 		
           
         } );

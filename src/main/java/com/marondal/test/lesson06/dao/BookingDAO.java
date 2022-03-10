@@ -23,4 +23,6 @@ public interface BookingDAO {
 	public Booking selectBooking(
 			@Param("name") String name,
 			@Param("phoneNumber") String phoneNumber);
+	
+	public int updateState(@Param("id") int id);
 }

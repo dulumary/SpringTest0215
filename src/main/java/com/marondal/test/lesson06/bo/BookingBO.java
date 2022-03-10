@@ -32,5 +32,9 @@ public class BookingBO {
 	public Booking getBooking(String name, String phoneNumber) {
 		return bookingDAO.selectBooking(name, phoneNumber);
 	}
+	
+	public int changeState(int id) {
+		return bookingDAO.updateState(id);
+	}
 			
 }

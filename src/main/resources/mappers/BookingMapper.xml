@@ -68,6 +68,17 @@
 			
 	
 	</select>
+	<update id="updateState" parameterType="int">
+		UPDATE `booking`
+		SET 
+			`state` = '확정'
+		 WHERE
+		 	`id` = #{id}
+	
+	</update>
+	
+	
+	
 	
 
 </mapper>

@@ -86,4 +86,23 @@ public class BookingController {
 		return result;
 	}
 	
+	@GetMapping("/change_state")
+	@ResponseBody
+	public Map<String, String> changeState(@RequestParam("id") int id) {
+		
+		int count = bookingBO.changeState(id);
+		
+		Map<String, String> result = new HashMap<>();
+		
+		if(count == 1) {
+			result.put("result", "success");
+		} else {
+			result.put("result", "fail");
+		}
+			
+		return result;
+		
+	}
+	
+	
 }
