@@ -17,4 +17,16 @@ public class BookingBO {
 	public List<Booking> getBookingList() {
 		return bookingDAO.selectBookingList();
 	}
+	
+	public int addBooking(
+			String name,
+			String date,
+			int day,
+			int headcount,
+			String phoneNumber) {
+		
+		return bookingDAO.insertBooking(name, date, day, headcount, phoneNumber, "대기중");
+	}
+			
+			
 }

@@ -22,5 +22,30 @@
 		ORDER BY 
 			`id` DESC
 	</select>
+	
+	<insert id="insertBooking" parameterType="map" >
+		INSERT INTO `booking`
+		(
+			`name`
+			, `headcount`
+			, `day`
+			, `date`
+			, `phoneNumber`
+			, `state`
+			, `createdAt`
+			, `updatedAt`
+		) VALUE (
+			#{name}
+			, #{headcount}
+			, #{day}
+			, #{date}
+			, #{phoneNumber}
+			, #{state}
+			, now()
+			, now()
+		)
+		
+		
+	</insert>
 
 </mapper>
